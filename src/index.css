@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  background: url("./assets/img/backgorund1.jpg");
+  background-size: cover;
+}
