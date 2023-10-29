@@ -1,0 +1,9 @@
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 110%;
+  object-fit: cover; /* Untuk memastikan video terisi seluruh layar */
+  z-index: -1; /* Menempatkan video di belakang elemen-elemen lain */
+}

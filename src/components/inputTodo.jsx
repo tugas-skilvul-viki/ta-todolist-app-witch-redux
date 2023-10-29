@@ -1,6 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addTodo } from "../redux/reducer/todoReducer";
 
 function InputTodo() {
+  const [input, setInput] = useState("");
+  const { isLoading, todos } = useSelector((state) => state.todo);
+  const dispatch = useDispatch();
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    let newTodo = {
+      value: input,
+      status: false,
+    };
+
+    dispatch(addTodo(newTodo));
+    setInput("");
+  };
+
   return (
     <div>
       <form action="" className="flex gap-4 items-center">
@@ -8,11 +25,16 @@ function InputTodo() {
           <input
             className="ring-0 pl-4 rounded-2xl shadow-sm border-gray-400 py-1"
             type="text"
-            placeholder="Add some taks..."
+            placeholder="Add some task..."
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
           />
         </div>
         <div>
-          <button className="text-blue-500 bg-blue-50 px-3 py-1 rounded-2xl">
+          <button
+            onClick={handleClick}
+            className="text-blue-500 bg-blue-50 px-3 py-1 rounded-2xl"
+          >
             + New Task
           </button>
         </div>
