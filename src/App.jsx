@@ -1,5 +1,5 @@
 import TodoPage from "./pages/todoPage";
-
+import "./assets/css/index.css";
 function App() {
   return (
     <div>
