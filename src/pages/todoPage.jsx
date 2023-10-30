@@ -5,10 +5,6 @@ import "../assets/css/index.css";
 function TodoPage() {
   return (
     <div className="flex flex-col justify-center items-center  text-gray-600">
-      <video autoPlay muted loop className="background-video">
-        <source src="/src/assets/video/Video.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
       <div className="text-white text-center mb-10 mt-20">
         <h1 className="text-3xl font-bold">
           Every Task Brings You Closer To Success !

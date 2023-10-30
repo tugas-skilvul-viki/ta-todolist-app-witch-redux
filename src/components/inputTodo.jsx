@@ -46,7 +46,7 @@ function InputTodo(props) {
         <div>
           <button
             onClick={handleClick}
-            className="btn-add text-blue-500 bg-blue-100 rounded-2xl"
+            className="btn-add text-blue-500 bg-blue-100 hover:bg-blue-200 rounded-2xl"
           >
             + New Task
           </button>

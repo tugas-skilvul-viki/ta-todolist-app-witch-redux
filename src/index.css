@@ -2,3 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 /* In your CSS file */
+body {
+  background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%);
+}
