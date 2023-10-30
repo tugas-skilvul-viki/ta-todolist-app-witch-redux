@@ -1,5 +1,6 @@
 import TodoPage from "./pages/todoPage";
 import "./assets/css/index.css";
+import { Toaster } from "react-hot-toast";
 function App() {
   return (
     <div>
@@ -11,6 +12,7 @@ function App() {
           </div>
         </div>
       </div>
+      <Toaster />
     </div>
   );
 }
