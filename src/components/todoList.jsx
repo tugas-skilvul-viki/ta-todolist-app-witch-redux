@@ -1,4 +1,10 @@
-import { Pencil, Trash } from "@phosphor-icons/react";
+import {
+  ArrowArcLeft,
+  ArrowCircleLeft,
+  CheckCircle,
+  Pencil,
+  Trash,
+} from "@phosphor-icons/react";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -8,6 +14,7 @@ import {
   updateTodoStatus,
 } from "../redux/reducer/todoReducer";
 import LoadingComponent from "./loadingComponent";
+import PropTypes from "prop-types";
 
 function TodoList() {
   const { isLoading, todos } = useSelector((state) => state.todo);
@@ -102,7 +109,7 @@ function TodoList() {
           </span>
         </div>
       </div>
-      <ul className="flex max-h-64 overflow-auto  flex-col gap-2">
+      <ul className="flex max-h-56 pr-1 overflow-auto  flex-col gap-2">
         {isLoading ? (
           <LoadingComponent />
         ) : (
@@ -122,10 +129,8 @@ function TodoList() {
                     {isEdit && editItemId === todo.id ? (
                       <div>
                         <input
-                          className="shadow rounded-md"
+                          className="border pl-3 rounded-xl"
                           type="text"
-                          name=""
-                          id=""
                           value={editValue}
                           onChange={(e) => setEditValue(e.target.value)}
                         />
@@ -149,9 +154,19 @@ function TodoList() {
                         <button
                           onClick={() => handleUpdate(todo.id, editValue)}
                         >
-                          save
+                          <CheckCircle
+                            className=" text-blue-500 hover:text-blue-600"
+                            size={20}
+                            weight="fill"
+                          />
                         </button>
-                        <button onClick={handleCancel}>cancel</button>
+                        <button onClick={handleCancel}>
+                          <ArrowCircleLeft
+                            className=" text-orange-400 hover:text-yellow-600"
+                            size={20}
+                            weight="fill"
+                          />
+                        </button>
                       </div>
                     ) : (
                       <div className="flex">
@@ -184,5 +199,17 @@ function TodoList() {
     </div>
   );
 }
+
+// Definisikan PropTypes untuk TodoList
+TodoList.propTypes = {
+  isLoading: PropTypes.bool,
+  todos: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      checked: PropTypes.bool,
+      value: PropTypes.string,
+    })
+  ),
+};
 
 export default TodoList;

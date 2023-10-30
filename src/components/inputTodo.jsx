@@ -2,20 +2,27 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addTodo } from "../redux/reducer/todoReducer";
 
-function InputTodo() {
+function InputTodo(props) {
   const [input, setInput] = useState("");
   const { isLoading, todos } = useSelector((state) => state.todo);
   const dispatch = useDispatch();
+  const [error, setError] = useState(""); // State untuk pesan kesalahan
 
   const handleClick = (e) => {
     e.preventDefault();
-    let newTodo = {
-      value: input,
-      status: false,
-    };
 
-    dispatch(addTodo(newTodo));
-    setInput("");
+    if (input === "") {
+      setError("Input tidak boleh kosong");
+    } else {
+      let newTodo = {
+        value: input,
+        status: false,
+      };
+
+      dispatch(addTodo(newTodo));
+      setInput("");
+      setError(""); // Reset pesan kesalahan
+    }
   };
 
   return (
@@ -25,7 +32,7 @@ function InputTodo() {
           <input
             className="ring-0 pl-4 rounded-2xl shadow-sm border-gray-400 py-1"
             type="text"
-            placeholder="Add some task..."
+            placeholder="Add some task"
             value={input}
             onChange={(e) => setInput(e.target.value)}
           />
