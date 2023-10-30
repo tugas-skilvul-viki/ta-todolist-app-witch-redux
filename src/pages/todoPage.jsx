@@ -15,7 +15,7 @@ function TodoPage() {
         </h1>
         <p>Small steps lead to big accomplishments.</p>
       </div>
-      <div className="shadow-xl min-h-[455px] p-10 rounded-2xl bg-gray-50">
+      <div className="shadow-xl mx-10 min-h-[455px] p-10 rounded-2xl bg-gray-50">
         <h1 className="text-center mb-5 font-bold text-xl">Today's Task</h1>
         <InputTodo />
         <TodoList />

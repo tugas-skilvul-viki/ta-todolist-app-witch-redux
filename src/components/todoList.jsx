@@ -150,7 +150,7 @@ function TodoList() {
                   </div>
                   <div className="flex">
                     {isEdit && editItemId === todo.id ? (
-                      <div className="flex gap-1">
+                      <div className="flex">
                         <button
                           onClick={() => handleUpdate(todo.id, editValue)}
                         >

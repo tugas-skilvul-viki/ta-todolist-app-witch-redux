@@ -7,3 +7,18 @@
   object-fit: cover; /* Untuk memastikan video terisi seluruh layar */
   z-index: -1; /* Menempatkan video di belakang elemen-elemen lain */
 }
+
+.btn-add {
+  padding: 5px 10px;
+}
+
+@media (max-width: 495px) {
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+  .btn-add {
+    width: 100%;
+    padding: 5px 60px;
+  }
+}
